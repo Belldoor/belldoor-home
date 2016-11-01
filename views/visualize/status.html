@@ -1,0 +1,70 @@
+{% extends '../layout.html' %}
+{% block content %}
+<style type="text/css">
+    #power-gauge g.arc {
+        fill: steelblue;
+    }
+
+    #power-gauge g.pointer {
+        fill: #e85116;
+        stroke: #b64011;
+    }
+
+    #power-gauge g.label text {
+        text-anchor: middle;
+        font-size: 14px;
+        font-weight: bold;
+        fill: #666;
+    }
+</style>
+<h2>{{ title }} ({{ cTime }})</h2>
+<hr/>
+<div class="row">
+    <div class="col-md-6">
+        <h4>CPU Usage (%)</h4>
+        <div id="cpu-gauge"></div>
+    </div>
+    <div class="col-md-6">
+        <div id="cpu-line"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h4>Memory Usage (%)</h4>
+        <div id="mem-gauge"></div>
+    </div>
+    <div class="col-md-6">
+        <div id="mem-line"></div>
+    </div>
+</div>
+<script src="/javascripts/gauge.js"></script>
+<script>
+    $(document).ready(function () {
+        function drawGauges(datas) {
+            var gaugeSettings = {
+                size: 300,
+                clipWidth: 300,
+                clipHeight: 200,
+                ringWidth: 60,
+                maxValue: 100,
+                arcColorFn: d3.interpolateHsl(d3.rgb('red'), d3.rgb('green'))
+            };
+            var gauges = {
+                cpu: {val: datas.cpu * 100, element: gauge('#cpu-gauge', gaugeSettings)},
+                mem: {val: datas.mem * 100, element: gauge('#mem-gauge', gaugeSettings)}
+            };
+            Object.keys(gauges).map(function (obj) {
+                let val = gauges[obj].val;
+                gauges[obj].element.render(val);
+            });
+        }
+        function __init__() {
+            var result = {{ stringify(rst) }};
+            console.log(result);
+            drawGauges(result);
+        }
+
+        __init__();
+    });
+</script>
+{% endblock %}

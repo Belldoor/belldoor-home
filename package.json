@@ -1,0 +1,25 @@
+{
+  "name": "bdhome",
+  "version": "0.0.0",
+  "description": "Belldoor's Secret Labatory",
+  "main": "app.js",
+  "author": {
+    "name": "JongMoon",
+    "email": ""
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^3.4.4",
+    "jade": "^1.11.0",
+    "lodash": "^4.16.6",
+    "method-override": "^2.3.6",
+    "moment": "^2.15.2",
+    "mongodb": "^2.2.11",
+    "mongoose": "^4.6.5",
+    "nunjucks": "^2.1.0",
+    "os": "^0.1.1",
+    "serve-favicon": "^2.3.0",
+    "stylus": "^0.53.0"
+  }
+}
