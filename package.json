@@ -1,25 +1,45 @@
 {
-  "name": "bdhome",
-  "version": "0.0.0",
-  "description": "Belldoor's Secret Labatory",
-  "main": "app.js",
-  "author": {
-    "name": "JongMoon",
-    "email": ""
-  },
-  "dependencies": {
-    "body-parser": "^1.15.2",
-    "cookie-parser": "^1.4.3",
-    "express": "^3.4.4",
-    "jade": "^1.11.0",
-    "lodash": "^4.16.6",
-    "method-override": "^2.3.6",
-    "moment": "^2.15.2",
-    "mongodb": "^2.2.11",
-    "mongoose": "^4.6.5",
-    "nunjucks": "^2.1.0",
-    "os": "^0.1.1",
-    "serve-favicon": "^2.3.0",
-    "stylus": "^0.53.0"
-  }
+    "name": "gateway-island",
+    "version": "1.8.0",
+    "description": "gateway-island",
+    "private": true,
+    "main": "dist/app.js",
+    "scripts": {
+        "clean": "gulp clean",
+        "build": "gulp build",
+        "start": "gulp start",
+        "local": "gulp local",
+        "test": "gulp build && DEBUG=*SPEC* jasmine"
+    },
+    "dependencies": {
+        "@types/continuation-local-storage": "^3.2.0",
+        "@types/lodash": "4.14.56",
+        "@types/jsonwebtoken": "7.2.0",
+        "@types/oauth2orize": "^1.5.0",
+        "@types/passport": "^0.2.34",
+        "binary-jwt": "^1.0.0",
+        "island": "^1.7.0",
+        "island-base": "http://git.sphd.io/island/island-base/repository/archive.tar.gz?ref=v1.6.0",
+        "island-keeper": "^2.4.0",
+        "island-loggers": "^1.1.0",
+        "jsonwebtoken": "^7.1.9",
+        "lodash": "^4.16.1",
+        "passport": "^0.3.2",
+        "passport-http-bearer": "^1.0.1",
+        "range_check": "^1.4.0",
+        "restify": "^4.1.1",
+        "uuid": "^3.0.1",
+        "pidusage": "^1.1.1z",
+        "redis-bluebird": "^1.0.0"
+    },
+    "devDependencies": {
+        "@types/jasmine": "^2.5.43",
+        "del": "^2.2.2",
+        "gulp": "^3.9.1",
+        "gulp-jasmine": "^2.4.1",
+        "gulp-util": "",
+        "jasmine-console-reporter": "^1.2.7",
+        "island-endpoint-tester": "^1.0.0",
+        "typescript": "<2.2"
+    }
 }
